@@ -8,12 +8,35 @@ class Editor(models.Model):
 
     def __str__(self):
         return self.first_name
-    
-    class Meta:
-        ordering = ['first_name']
 
+    def __str__(self):
+        return self.last_name
+
+    def delete_editor(self):
+        self.delete()
+
+    def update_editor(self):
+        pass
+    
+    
 class tags(models.Model):
     name = models.CharField(max_length =30)
 
     def __str__(self):
         return self.name
+
+class Article(models.Model):
+    title = models.CharField(max_length =60)
+    post = models.TextField()
+    editor = models.ForeignKey(Editor,on_delete=models.CASCADE)
+
+
+    def __str__(self):
+        return self.title
+
+
+    def delete_post(self):
+        self.delete()
+
+    def update_editor(self):
+        pass
