@@ -1,0 +1,27 @@
+.navbar-inverse {
+    background-color: #f5f4f0;
+    padding: 1rem 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    box-shadow: 3px 3px#30c9b5;
+    height: 32px;
+    border-radius: 0%;
+    border: none;
+}
+
+.navbar-header:hover {
+    color: black;
+}
+
+.navbar-brand a {
+    line-height: 30px;
+    font-size: 25px;
+    margin: -14px;
+    color: black;
+}
+
+.navbar-form {
+    margin: -2px;
+    background-color: #5e0846;
+}
