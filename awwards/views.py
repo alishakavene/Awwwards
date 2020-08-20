@@ -5,9 +5,32 @@ from django.contrib import messages
 from .forms import UserRegisterForm
 from django.contrib.auth.decorators import login_required
 
+
+# Dummy data
+
+posts = [
+    {
+        'user': 'Alisha Kavene',
+        'title': ' Portfolio Website',
+        'content': 'Website review',
+        'date_posted':'August 20,2020'
+    },
+    {
+        'user': 'Jane Doe',
+        'title': ' Photogallery Website',
+        'content': 'Website review',
+        'date_posted':'August 20,2020'
+    }
+
+
+]
+
 # Create your views here.
 def home(request):
-    return render(request, 'all-awwards/base.html')
+    context = {
+        'posts': posts
+    }
+    return render(request, 'all-awwards/base.html',context)
 
 def register(request):
     if request.method == 'POST':

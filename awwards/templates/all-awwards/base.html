@@ -22,10 +22,29 @@
                     {{ message }}
                 </div>
             </div>
-            {% endfor %} {% endif %}{% block content %}
-            <h1 class="text-center">Site Of the day :{{date|date:"l d-F Y"}}</h1> {%endblock%} {% block scripts %}
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-            {% bootstrap_javascript %} {% endblock %}
+
+        </div>
+        {% endfor %} {% endif %}{% block content %}
+        <!-- <h1 class="text-center">Site Of the day :{{date|date:"l d-F Y"}}</h1> -->
+        <h1 class="text">The awards of design, creativity and innovation on the internets</h1>
+        <div class="col-md-8">
+            {% for post in posts %}
+            <article class="media content-section">
+                <div class="media-body">
+                    <div class="article-metadata">
+                        <a class="mr-2" href="#">{{ post.author }}</a>
+                        <small class="text-muted">{{ post.date_posted }}</small>
+                    </div>
+                    <h2><a class="article-title" href="#">{{ post.title }}</a></h2>
+                    <p class="article-content">{{ post.content }}</p>
+                </div>
+            </article>
+
+            {% endfor %}
+        </div>
+        {%endblock%} {% block scripts %}
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        {% bootstrap_javascript %} {% endblock %}
 </body>
 
 </html>
