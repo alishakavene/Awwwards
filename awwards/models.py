@@ -28,7 +28,9 @@ class tags(models.Model):
 class Article(models.Model):
     title = models.CharField(max_length =60)
     post = models.TextField()
-    editor = models.ForeignKey(Editor,on_delete=models.CASCADE)
+    editor = models.ForeignKey(Editor, on_delete=models.CASCADE)
+    tags = models.ManyToManyField(tags)
+    pub_date = models.DateTimeField(auto_now_add=True)
 
 
     def __str__(self):
@@ -38,5 +40,5 @@ class Article(models.Model):
     def delete_post(self):
         self.delete()
 
-    def update_editor(self):
+    def update_article(self):
         pass
