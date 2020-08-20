@@ -13,10 +13,19 @@
 </head>
 
 <body>
-    {% include "navbar.html" %} {% block content %}
-    <h1 class="text-center">Site Of the day :{{date|date:"l d-F Y"}}</h1> {%endblock%} {% block scripts %}
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    {% bootstrap_javascript %} {% endblock %}
+    {% include "navbar.html" %}
+    <main role="main" class="container">
+        <div class="row">
+            <div class="col-md-8">
+                {% if messages %} {% for messages in messages %}
+                <div class="alert alert-{{ message.tags }}">
+                    {{ message }}
+                </div>
+            </div>
+            {% endfor %} {% endif %}{% block content %}
+            <h1 class="text-center">Site Of the day :{{date|date:"l d-F Y"}}</h1> {%endblock%} {% block scripts %}
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+            {% bootstrap_javascript %} {% endblock %}
 </body>
 
 </html>
