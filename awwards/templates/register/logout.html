@@ -1,0 +1,8 @@
+{%extends 'all-awwards/base.html'%} {% load crispy_forms_tags %} {% block content %}
+<h2>You are Logged out </h2>
+<div class="border-top pt-3">
+    <small class="text-muted">
+         <a class="ml-2" href="{% url 'login' %}"> LogIn</a>
+        </small>
+</div>
+{{block.super}} {% endblock %}
