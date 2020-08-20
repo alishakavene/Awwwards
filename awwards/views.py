@@ -3,6 +3,7 @@ from django.http  import HttpResponse
 from django.shortcuts import render
 from django.contrib import messages
 from .forms import UserRegisterForm
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def home(request):
@@ -20,5 +21,6 @@ def register(request):
         form = UserRegisterForm()
     return render(request,'all-awwards/register.html',{'form':form})
 
+@login_required
 def profile(request):
     return render(request, 'all-awwards/profile.html')
